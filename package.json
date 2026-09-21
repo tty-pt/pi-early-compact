@@ -1,0 +1,47 @@
+{
+  "name": "@tty-pt/pi-early-compact",
+  "version": "1.0.0",
+  "description": "Standalone Pi extension: deterministic, configurable early compaction (adaptive window tiers, percentage/token thresholds, warning margin). Composable with pi-vcc but never dependent on it.",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-extension",
+    "compaction"
+  ],
+  "license": "BSD-2-Clause",
+  "author": "quirinpa",
+  "homepage": "https://github.com/tty-pt/pi-early-compact",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tty-pt/pi-early-compact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tty-pt/pi-early-compact/issues"
+  },
+  "files": [
+    "index.ts",
+    "src",
+    "README.md"
+  ],
+  "main": "index.ts",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "deno test --allow-all --sloppy-imports --node-modules-dir=none tests/",
+    "check": "deno check --sloppy-imports --node-modules-dir=none src/index.ts tests/*.ts && deno run --allow-all --sloppy-imports --node-modules-dir=none scripts/check-complexity.ts",
+    "zip": "deno run --allow-all scripts/zip_bundle.ts"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": { "optional": true }
+  },
+  "pi": {
+    "extensions": [
+      "index.ts"
+    ]
+  }
+}
